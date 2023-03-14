@@ -22,7 +22,7 @@ class LienHeController extends Controller
         $lienhe->ngaylienhe = $dt->toDateString();
         $lienhe->noidunglienhe = $req->content;
         $lienhe->save();
-        return back()->with('message', 'Gửi thành công');
+        return back()->with('success', 'Gửi thành công');
     }
     public function a(Request $request){
         $s=   $request->all();

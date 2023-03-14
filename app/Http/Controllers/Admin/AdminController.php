@@ -56,12 +56,12 @@ class AdminController extends Controller
         }
     }
     public function fbredirect(){
-        return Socialite::driver('facebook')->stateless();
+        return Socialite::driver('facebook')->redirect();
 
     }
     public function fbcallback(){
         $fb = Socialite::driver('facebook')->user();
-        dd($fb);
+      dd($fb);
         
 
             $user=User::where('facebook_id',$fb->getId())->first();

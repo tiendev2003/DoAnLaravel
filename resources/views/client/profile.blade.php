@@ -1,12 +1,12 @@
-@extends('layouts.main')
-@section('title', 'Thông tin cá nhân')
-@section('content')
-    <div class="wrapper">
-        <div class="container-fluid">
+ @extends('layouts.client')
+ @section('title', 'Thông tin cá nhân')
+ @section('content')
+   <div class="wrapper ">
+        <div class="container-fluid ">
             <div class="row gx-4 ">
-                <div class=" col-xl-4 rounded-9">
+                <div class=" col-xl-4 mt-4 rounded-9">
                     <div class="card shadow ">
-                        <form action="{{ route('admin.profile.updateImg', ['id' => $user->id]) }}" method="POST"
+                        <form action="{{ route('shoplaptop.profile.updateImg', ['id' => $user->id]) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="card-header py-3">
@@ -16,11 +16,8 @@
                                 function chooseFile(fileinput) {
                                     if (fileinput.files && fileinput.files[0]) {
                                         var reader = new FileReader();
-
-
                                         reader.onload = function(e) {
                                             $('#img').attr('src', e.target.result);
-
                                         }
                                         reader.readAsDataURL(fileinput.files[0])
                                     }
@@ -40,13 +37,13 @@
                         </form>
                     </div>
                 </div>
-                <div class=" col-xl-4 ">
+                <div class=" col-xl-4 mt-4 ">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h3>Chi tiết tài khoản</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.profile.update', ['id' => $user->id]) }}"
+                            <form action="{{ route('shoplaptop.profile.update', ['id' => $user->id]) }}"
                                 class="form-group form-horizontal form-material" method="POST"> @csrf
 
                                 <div class="form-group col-md-12">
@@ -78,7 +75,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-xl-4 ">
+                <div class=" col-xl-4 mt-4">
                     <div class="card shadow mb-4">
                             
                       @livewire('profile.update-password-form')
@@ -88,4 +85,4 @@
             </div>
         </div>
     </div>
-@endsection()
+ @endsection

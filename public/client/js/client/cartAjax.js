@@ -3,7 +3,7 @@ function changeQuanity(id, value, price, iduser) {
     jQuery.ajax({
         type: "GET",
         url:
-            "http://localhost:8000/shoplaptop/changeQuantity/" +
+            "/shoplaptop/changeQuantity/" +
             id +
             "/" +
             value +
@@ -30,7 +30,7 @@ function changeQuanity(id, value, price, iduser) {
 function deleteFromCart(id, iduser) {
     jQuery.ajax({
         type: "GET",
-        url: "http://localhost:8000/shoplaptop/detroy/" + id + "/" + iduser,
+        url: "/shoplaptop/detroy/" + id + "/" + iduser,
         success: function (result) {
             var element = document.getElementById("item" + id);
             element.parentNode.removeChild(element);

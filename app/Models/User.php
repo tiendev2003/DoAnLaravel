@@ -76,4 +76,7 @@ class User extends Authenticatable
     public function donhang(){
         return $this->hasMany(Donhang::class);
     }
+    public function binhluan(){
+        return $this->hasMany(Binhluan::class);
+    }
 }

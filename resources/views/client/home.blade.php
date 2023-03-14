@@ -1,19 +1,21 @@
 @extends('layouts.client')
 @section('title', 'Laptop Shop')
 @section('content')
+  
     @include('client.include.banner')
     <div class="product">
+      
         <div class="product-m">
             @foreach ($sanpham as $sp)
                 <div class="item">
                     <div class="imgBox">
-                        <a href="{{ route('shoplaptop.details', ['id' => $sp->id]) }}">
+                        <a href="{{ route('shoplaptop.chitiet', ['id' => $sp->id]) }}">
                             <img src="/sanpham/{{ $sp->anh }}" class="mouse">
                         </a>
                     </div>
 
                     <div class="contentBox text-center">
-                        <a href="{{ route('shoplaptop.details', ['id' => $sp->id]) }}"
+                        <a href="{{ route('shoplaptop.chitiet', ['id' => $sp->id]) }}"
                             class="product-name">{{ $sp->name }}</a>
                         <span class="price" name="price">
                             {{ $sp->dongia }} VND
@@ -38,7 +40,11 @@
         </div>
     </section>
     <!-- Product -->
-
+<script>
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script>
 
 
 

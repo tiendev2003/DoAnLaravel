@@ -14,19 +14,19 @@
          <div class="row">
              <div class="col-sm">
                  <div class="grid_1_of_3 images_1_of_3">
-                     <a href="i"><img src="/client/img/banner1.jpg"></a>
+                     <a href=""><img src="/client/img/banner1.jpg"></a>
                      <h5>Thương hiệu nổi bật </h5>
                  </div>
              </div>
              <div class="col-sm">
                  <div class="grid_1_of_3 images_1_of_3 ">
-                     <a href="single.html"><img src="/client/img/banner2.png" style="background-color: white"></a>
+                     <a href=""><img src="/client/img/banner2.png" style="background-color: white"></a>
                      <h5>Thương hiệu nổi bật</h5>
                  </div>
              </div>
              <div class="col-sm">
                  <div class="grid_1_of_3 images_1_of_3 ">
-                     <a href="single.html"><img src="/client/img/banner3.png" style="background-color: white"></a>
+                     <a href=""><img src="/client/img/banner3.png" style="background-color: white"></a>
                      <h5>Thương hiệu nổi bật</h5>
                  </div>
              </div>

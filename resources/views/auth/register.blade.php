@@ -78,13 +78,13 @@
             <form method="POST" action="{{ route('register') }}">
             @csrf
                 <h2>Đăng ký</h2>
-                <p>Đăng nhập với:</p>
+                <p>Đăng ký với:</p>
                <div class="social">
                     <div class="social-icons facebook">
-                        <a href="#" ><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        <a href="/login/facebook"  ><i class="fa-brands fa-facebook"></i> Facebook</a>
                     </div>
                     <div class="social-icons google">
-                        <a href="#"><i class="fa-brands fa-google"></i> Google</a>
+                        <a href="/google/redirect"><i class="fa-brands fa-google"></i> Google</a>
                     </div>
                 </div>
                 <div class="input-div one">

@@ -7,7 +7,7 @@
         function deleteFromCart(id, iduser) {
             jQuery.ajax({
                 type: "GET",
-                url: "http://localhost:8000/shoplaptop/detroy/" + id + "/" + iduser,
+                url: "/shoplaptop/detroy/" + id + "/" + iduser,
                 success: function(result) {
                     var element = document.getElementById("item" + id);
                     element.parentNode.removeChild(element);
@@ -22,10 +22,13 @@
     </script>
 @endsection
 @section('content')
+
     <section>
         <br>
         <h2> QUẢN LÝ GIỎ HÀNG</h2> <br>
-        <table class="table table-bordered font-weight-bold table-responsive-xl">
+        <div class="table-responsive">
+        
+        <table class="table table-bordered font-weight-bold    ">
             <thead>
                 <tr>
                     <td>STT</td>
@@ -40,7 +43,7 @@
             <tbody>
                 @if (!$cart->isEmpty())
                     @foreach ($cart as $sp)
-                        <tr id="item{{ $sp->sanpham->id }}" class="item{{ $sp->id }}">
+                        <tr  id="item{{ $sp->sanpham->id }}" class="item{{ $sp->id }}">
                             <td>{{ $loop->index + 1 }}</td>
                             <td><img class="pro-img" src="/sanpham/{{ $sp->sanpham->anh }}"> </td>
 
@@ -53,10 +56,13 @@
                             </td>
                             <td class="covertPriceProduct">{{ $sp->sanpham->dongia }}</td>
 
-                            <td>
-                                <input type="number" value={{ $sp->soluong }} min="1" class="form-control"
+                            <td class="text-center">
+                              <div class="quantity text-center align-content-center">
+                                    <input type="number" value={{ $sp->soluong }} min="1" class="form-control"
                                     style="width: 5rem;"
                                     onChange="changeQuanity( {{ $sp->sanpham->id }},this.value, {{ $sp->sanpham->dongia }},{{ $id_user }})">
+                                 </div>
+                              
                             </td>
                             <td>
 
@@ -83,6 +89,7 @@
                         <td colspan="3">
                             <a class="btn btn-primary" href="/"><i class="fa fa-arrow-left"></i> Mua thêm sản phẩm
                                 khác</a>
+                                  <a href="{{ route('shoplaptop.donhang') }}" class="btn btn-danger"> Đơn hàng</a>
                         </td>
                     @else
                         <td colspan="3">
@@ -106,7 +113,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table></div>
     </section>
 
 @endsection

@@ -40,32 +40,8 @@ class AdminSanPhamController extends Controller
     }
     public function store(Request $req)
     {
-        
+
         $data = new Sanpham();
-        $data->danhmuc_id = $req->danhmuc_id;
-        $data->hangsx_id = $req->hangsx_id;
-        $data->name = $req->name;
-        $data->dongia = $req->dongia;
-        $data->donvikho = $req->donvikho;
-        $data->donviban = 0;
-        $data->thongtinbaohanh = $req->thongtinbaohanh;
-        $data->thongtinchung = $req->thongtinchung;
-        $data->manhinh = $req->manhinh;
-        $data->cpu = $req->cpu;
-        $data->ram = $req->ram;
-        $data->hedieuhanh = $req->hedieuhanh;
-        $data->thietke = $req->thietke;
-        $data->dungluongpin = $req->dungluongpin;
-        $image = $req->img;
-        $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $req->img->move('sanpham', $imagename);
-        $data->anh = $imagename;
-        $data->save();
-        return redirect('admin/san-pham');
-    }
-    public function update(Request $req, Sanpham $sp, $id)
-    {
-        $data = Sanpham::find($id);
         $data->danhmuc_id = $req->danhmuc_id;
         $data->nhanhieu_id = $req->hangsx_id;
         $data->name = $req->name;
@@ -85,8 +61,41 @@ class AdminSanPhamController extends Controller
         $req->img->move('sanpham', $imagename);
         $data->anh = $imagename;
         $data->save();
+        return redirect('admin/san-pham')->with('success','Tạo sản phẩm thành công');;
+    }
+    public function update(Request $req, Sanpham $sp, $id)
+    {
+      
+        $data = Sanpham::find($id);
+        $data->danhmuc_id = $req->danhmuc_id;
+        $data->nhanhieu_id = $req->hangsx_id;
+        $data->name = $req->name;
+        $data->dongia = $req->dongia;
+        $data->donvikho = $req->donvikho;
+        $data->donviban = 0;
+        $data->thongtinbaohanh = $req->thongtinbaohanh;
+        $data->thongtinchung = $req->thongtinchung;
+        $data->manhinh = $req->manhinh;
+        $data->cpu = $req->cpu;
+        $data->ram = $req->ram;
+        $data->hedieuhanh = $req->hedieuhanh;
+        $data->thietke = $req->thietke;
+        $data->dungluongpin = $req->dungluongpin;
+        
+        $image = $req->img;
+        $imagename="";
+        if($image==null){
+            $data->anh=$req->noselect;
+        }else{
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $req->img->move('sanpham', $imagename);
+            
+        $data->anh = $imagename;
+        }
    
-        return redirect('admin/san-pham');
+        $data->save();
+
+        return redirect('admin/san-pham')->with('success','Cập nhật sản phẩm thành công');;
     }
     public function destroy(Sanpham $sp, $id)
     {
@@ -97,6 +106,6 @@ class AdminSanPhamController extends Controller
         // $image_path = public_path().'/'.$data->anh;
         // unlink($image_path);
         $data->delete();
-        return redirect('admin/san-pham');
+        return redirect('admin/san-pham')->with('success','Xoá sản phẩm thành công');;
     }
 }

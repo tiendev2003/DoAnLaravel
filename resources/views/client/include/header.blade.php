@@ -26,8 +26,8 @@
      </div>
 
      <form action="{{ route('search') }}" class="search-form">
-         <input type="search" name="sanpham" placeholder="search here..." id="search-box">
-         <button class="fa fa-search" type="submit"></button>
+         <input type="search" name="sanpham"  id="search-box">
+         <button class="fa fa-search" style="margin:10px;" type="submit"></button>
      </form>
      <div class="user-name">
          @if (Route::has('login'))
@@ -41,7 +41,7 @@
                          </div>
                      </li>
                      <li>
-                         <a href="/login"> <i class="fa fa-cog"></i> cài đặt </a>
+                         <a href="{{ route('shoplaptop.profile.index') }}"> <i class="fa fa-cog"></i> cài đặt </a>
                      </li>
                      <li>
                          <a href="/logout"> <i class="fa fa-sign-out-alt" aria-hidden="true"></i>Đăng xuất</a>

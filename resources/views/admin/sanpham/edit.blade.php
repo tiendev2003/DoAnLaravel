@@ -90,7 +90,8 @@
                                     <div class="row mt-2">
                                         <div class="form-group col-md-12">
                                             <label for="spImg">Hình ảnh</label>
-                                            <input type="file" class="form-control" id="spImg" name="img"
+                                            <input type="hidden" name="noselect" id="noselect" value="{{ $data->anh }}">
+                                            <input type="file" class="form-control" id="spImg" name="img" value="{{ $data->anh }}"
                                                 aria-describedby="spImg" onchange="chooseFile(this)">
                                         </div>
                                     </div>

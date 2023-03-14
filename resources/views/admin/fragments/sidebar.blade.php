@@ -18,20 +18,19 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
 
- <li class="nav-item ">
-        <a class="nav-link" href="{{route('admin.banner.index')}}">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            </i>&nbsp;</span>Quản lý Bannner</a>
-        </a>
-    </li>
-
     <li class="nav-item ">
-        <a class="nav-link" href="{{route('admin.donhang.index')}}">
+        <a class="nav-link" href="{{ route('admin.donhang.index') }}">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </i>&nbsp;</span>Quản lý Đơn hàng</a>
         </a>
     </li>
 
+ {{--  <li class="nav-item ">
+        <a class="nav-link" href="{{ route('admin.banner.index') }}">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </i>&nbsp;</span>Quản lý banner</a>
+        </a>
+    </li>  --}}
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -41,13 +40,13 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="   {{route('admin.sanpham.create')}}">Thêm</a>
-                <a class="collapse-item" href="   {{route('admin.sanpham.index')}}">Danh sách</a>
+                <a class="collapse-item" href="   {{ route('admin.sanpham.create') }}">Thêm</a>
+                <a class="collapse-item" href="   {{ route('admin.sanpham.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.danhmuc.index')}}">
+        <a class="nav-link" href="{{ route('admin.danhmuc.index') }}">
             <i class="fa fa-th-list" aria-hidden="true"></i>&nbsp;
             </span>Quản lý Danh Mục</a>
         </a>
@@ -56,7 +55,7 @@
 
 
     <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.nhanhieu.index')}}">
+        <a class="nav-link" href="{{ route('admin.nhanhieu.index') }}">
             <i class="fa fa-tasks" aria-hidden="true"></i>
             &nbsp;</span>Quản lý Nhãn hiệu</a>
         </a>
@@ -70,20 +69,20 @@
         <div id="collapseUtilitiesw" class="collapse" aria-labelledby="headingUtilities"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="  {{route('admin.taikhoan.create')}}">Thêm </a>
-                <a class="collapse-item" href="{{route('admin.taikhoan.index')}}">Danh sách</a>
+                <a class="collapse-item" href="  {{ route('admin.taikhoan.create') }}">Thêm </a>
+                <a class="collapse-item" href="{{ route('admin.taikhoan.index') }}">Danh sách</a>
             </div>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{route('admin.lienhe.index')}}">
+        <a class="nav-link" href="{{ route('admin.lienhe.index') }}">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             &nbsp;</span>Quản lý Liên Hệ</a>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="   {{route('admin.profile.index')}}">
+        <a class="nav-link" href="   {{ route('admin.profile.index') }}">
             <i class="fa fa-user" aria-hidden="true"></i>
             &nbsp;</span>Thông tin cá nhân</a>
         </a>

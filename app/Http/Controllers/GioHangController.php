@@ -71,7 +71,8 @@ class GioHangController extends Controller
             } else {
                 $giohang->sanpham()->attach($idSp, ['soluong' => $req->quantity]);
             }
-            return back();
+           
+            return back()->with('success','Thêm giỏ hàng thành công');
         } else {
             return redirect('login');
         }

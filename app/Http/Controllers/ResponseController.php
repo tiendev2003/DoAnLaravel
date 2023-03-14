@@ -93,9 +93,10 @@ class ResponseController extends Controller
         // dd($dhang);
         $item = Giohang::where('user_id', Auth::id())->first();
         $cmgh = Chitietgiohang::where('giohang_id', $item->id)->get();
-
+        
         $giohang->sanpham()->detach();
         $giohang = Giohang::where('user_id', Auth::id())->delete();
+
         return view('client.thankYou', ['donhangs' => $dhang, 'cart' => $cmgh]);
     }
     public function search(Request $req)
@@ -109,7 +110,8 @@ class ResponseController extends Controller
         $d = $data->sanpham;
         return view('client.danhmuc', ['sanpham' => $d, 'data' => $data]);
     }
-    public function donhang(){
+    public function donhang()
+    {
         return view('client.donhang');
     }
 }

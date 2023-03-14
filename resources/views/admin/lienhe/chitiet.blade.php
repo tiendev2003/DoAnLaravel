@@ -11,7 +11,7 @@
                         </div>
                         <div class="col-md-1">
                             <div class="col-md-1">
-                                <a href="" class="float-right"><i class="fa fa-chevron-circle-left"></i>
+                                <a href="/admin/lien-he" class="float-right"><i class="fa fa-chevron-circle-left"></i>
                                 </a>
                             </div>
                         </div>

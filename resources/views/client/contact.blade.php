@@ -7,12 +7,7 @@
                 <h2> Liên hệ với chúng tôi</h2>
             </div>
             <div class="card-body">
-                @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        <button class="close" type="button" data-dismiss="alert" aria-hidden="true">x</button>
-                        {{ session()->get('message') }}
-                    </div>
-                @endif
+                
                 <form style="text-transform: capitalize;" method="post" id="form" action="{{ route('shoplaptop.lienhe.store') }}">
                     @csrf
                     <div class="form-group" >

@@ -29,18 +29,18 @@ class HomeController extends Controller
         }
         $usertype = UserVaitro::where('user_id', $item)->first();
         if ($usertype->vaitro_id == 1) {
-            return view('client.home', ['sanpham' => $sp]);
+            return view('client.home', ['sanpham' => $sp])->with('success','Login thành công');
         } else if ($usertype->vaitro_id == 2) {
             $dt = Auth::user();
-            return redirect('shipper/profile');
+            return redirect('shipper/profile')->with('success','Login thành công');
         } else {
-            return redirect('admin');
+            return redirect('admin')->with('success','Login thành công');
         }
     }
-    public function logout()
+    public function logout()    
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('success','Đăng xuất thành công');
     }
 
     public function index()

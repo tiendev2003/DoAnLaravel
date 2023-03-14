@@ -14,14 +14,12 @@ class AdminDanhMucController extends Controller
         
         $dm = Danhmuc::all();
         return view('admin.danhmuc.index', ['data' => $dm]);
- 
     }
    // lưu trữ
     public function store(Request $request)
     {
         $request->validate([
-            "name" => 'required|min:3',
-         
+            "name" => 'required|min:4',
         ]);
         $dt = new Danhmuc();// tạo mới là new
         // tạo mới bảnh User 
@@ -41,7 +39,7 @@ class AdminDanhMucController extends Controller
         $data = Danhmuc::find($id);
         $data->name = $req->name;
         $data->save();
-        return back();
+        return redirect()->route('admin.danhmuc.index');
     }
     public function destroy(Danhmuc $dm, $id)
     {

@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('title', 'Quản lý danh mục')
 @section('content')
-
     <div class="container-fluid">
         <div class="card shadow mb-4">
             <div class="card-body">
@@ -21,7 +20,8 @@
                                 </div>
                             @endif
 
-                            <form name="my-form" action="{{ route('admin.danhmuc.store') }}" method="post"> @csrf
+                            <form name="my-form" action="{{ route('admin.danhmuc.store') }}" method="post"> 
+                            @csrf
                                 <div>
                                     <input type="hidden" class="form-control" name="id" id="id" readonly>
                                 </div>
@@ -65,7 +65,7 @@
                                 <tbody>
                                     @foreach ($data as $dt)
                                         <tr>
-                                            <th scope="row">{{ $dt->id }}</th>
+                                            <th scope="row">{{ $loop->index}}</th>
                                             <td> {{ $dt->name }}</td>
                                             <td><a href="{{ route('admin.danhmuc.edit', ['id' => $dt->id]) }}"
                                                     class="btn btn-outline-warning">

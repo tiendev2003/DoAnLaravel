@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <h6 class="title-header">Sửa loại hãng sản xuất</h6>
         <form class="user" action="{{route('admin.nhanhieu.update',['id'=>$dt->id])}}" method="post">
+             @csrf
             <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">ID</label>
                 <div class="col-md-4">

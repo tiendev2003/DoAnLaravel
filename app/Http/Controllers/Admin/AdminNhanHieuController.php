@@ -39,24 +39,24 @@ class AdminNhanHieuController extends Controller
         $data = new Nhanhieu();
         $data->name = $dt;
 
-        return back();
+        return back()->with('success','Tạo nhãn hiệu thành công');;
     }
     public function edit(Request $req, Nhanhieu $dm, $id)
     {
         $data = Nhanhieu::find($id);
         return view('admin.nhanhieu.edit', ['dt' => $data]);
     }
-    public function update(Request $req, Nhanhieu $dm, $id)
+    public function update(Request $req, $id)
     {
         $data = Nhanhieu::find($id);
         $data->name = $req->name;
         $data->save();
-        return redirect('admin/nhan-hieu');
+        return redirect('admin/nhan-hieu')->with('success','Cập nhật nhãn hiệu thành công');;
     }
     public function destroy($id)
     {
         $data = Nhanhieu::find($id);
         $data->delete();
-        return back();
+        return back()->with('success','Xoá thành công');;
     }
 }

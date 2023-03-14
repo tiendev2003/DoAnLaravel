@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('lienhes', function (Blueprint $table) {
             $table->id();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('ngaylienhe');
             $table->string('ngaytraloi');
             $table->string('noidunglienhe');
             $table->string('noidungtraloi');
-            $table->string('trangthai')->unique();
+            $table->string('trangthai');
             $table->unsignedBigInteger('nguoitraloi_id');
             $table->timestamps();
             $table->foreign('nguoitraloi_id')->references('id')->on('users')->onDelete('cascade');

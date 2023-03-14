@@ -57,7 +57,7 @@
 
             <form method="POST" action="{{ route('login') }}">
             @csrf
-                <x-jet-validation-errors class="mb-4" />
+      
                 <h2>Đăng nhập</h2>
                 <p>Chào mừng trở lại !</p>
                 <div class="input-div one">

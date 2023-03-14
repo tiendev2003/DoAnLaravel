@@ -9,10 +9,12 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminSanPhamController;
 use App\Http\Controllers\Admin\AdminTaiKhoanController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\BinhluanController;
 use App\Http\Controllers\DonHangController;
 use App\Http\Controllers\LienHeController;
 use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\Shipper\ShipperController;
@@ -80,6 +82,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     });
     Route::prefix('/banner')->name('banner.')->controller(BannerController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::post('/', 'luuAnh')->name('luu');
     });
     Route::prefix('/don-hang')->name('donhang.')->controller(AdminDonHangController::class)->group(function () {
         Route::get('/', 'index')->name('index');
@@ -168,12 +171,25 @@ Route::prefix('shoplaptop')->name('shoplaptop.')->group(function () {
     Route::get('/lastest', [ResponseController::class, 'spLastest'])->name('spLastest');
     Route::get('/gio-hang', [GioHangController::class, 'index'])->name('index');
     Route::get('/addcart/{id}', [GioHangController::class, 'add_cart'])->name('addcart');
-    Route::get('/chi-tiet-sp/{id}', [SanPhamController::class, 'details'])->name('details');
+    Route::get('/chi-tiet-sp/{id}', [SanPhamController::class, 'details'])->name('chitiet');
     Route::get('/thanh-toan', [ResponseController::class, 'thanhtoan'])->name('thanhtoan');
     Route::get('/thankyou', [ResponseController::class, 'thankyou'])->name('thankyou');
     Route::get('/changeQuantity/{id}/{value}/{iduser}', [GioHangController::class, 'changeQuantity'])->name('changeQuantity');
     Route::get('/detroy/{id}/{iduser}', [GioHangController::class, 'detroy'])->name('detroy');
     Route::get('/donhang',[DonHangController::class,'index'])->name('donhang');
+    Route::get('/chi-tiet-don-hang/{id}',[DonHangController::class,'details'])->name('details');
+
+    Route::prefix('/profile')->name('profile.')->controller(ProfileController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/store', 'store')->name('store');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::post('/updateImg/{id}', 'updateImg')->name('updateImg');
+
+    });
+    Route::prefix('/binhluan')->name('binhluan.')->controller(BinhluanController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/post/{user}&{sanpham}', 'post')->name('post');
+    });
 });
 Route::get('/td', [LienHeController::class, 'a'])->name('td');
 Route::get('/td1', [LienHeController::class, 'b']);
